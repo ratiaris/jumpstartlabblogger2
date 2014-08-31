@@ -28,6 +28,7 @@ gem 'spring',        group: :development
 
 gem 'heroku_secrets', github: 'alexpeattie/heroku_secrets'
 
+gem 'paperclip'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
 

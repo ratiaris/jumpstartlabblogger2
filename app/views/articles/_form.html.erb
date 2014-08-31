@@ -1,5 +1,5 @@
 <h1><%= yield :header %></h1>
-<%= form_for @article do |f| %>
+<%= form_for(@article, html: {multipart: true}) do |f| %>
 	<ul>
 		<% @article.errors.full_messages.each do |error| %>
 			<li><%= error %>
@@ -16,6 +16,15 @@
 	<p>
 		<%= f.label :tag_list %><br />
 		<%= f.text_field :tag_list %><br />
+	</p>
+	<p>
+		<% if @article.image.exists? %>
+			<%= image_tag @article.image.url %><br />
+			<%= f.label :image, "Attach a New Image" %><br />
+		<% else %>
+			<%= f.label :image, "Attach an Image" %><br />
+		<% end %>
+		<%= f.file_field :image %><br />
 	</p>
 	<p>
 		<%= f.submit %>
